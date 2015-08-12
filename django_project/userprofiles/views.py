@@ -11,6 +11,10 @@ def signup(request):
     if form.is_valid():
         form.save()
 
+        #loguear
+        #crear userprofiles
+        #redireccionar al home
+
     return render(request, 'signup.html', {'form': form})
 
 
@@ -19,5 +23,6 @@ def signin(request):
 
     if form.is_valid():
         login(request, form.get_user())
+        #redireccionar el home
 
     return render(request, 'signin.html', {'form': form})

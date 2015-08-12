@@ -88,6 +88,6 @@ STATIC_URL = '/static/'
 
 # Backends
 
-AUTHENTICATION_BACKENDS = (
-    'userprofiles.backends.EmailBackend',
-)
+# AUTHENTICATION_BACKENDS = (
+#     'userprofiles.backends.EmailBackend',
+# )

@@ -4,13 +4,18 @@ from django.contrib import admin
 from .models import Artist
 
 from tracks.models import Track
+from albums.models import Albums
+
+class AlbumInLine(admin.StackedInline):
+    model = Albums
 
 class TrackInLine(admin.StackedInline):
     model = Track
 
 class ArtistAdmin(admin.ModelAdmin):
     search_fields = ('name', 'last_name')
-    inlines = [TrackInLine]
+    inlines = [TrackInLine, AlbumInLine]
+    filter_horizontal = ('favorite_songs',)
 
 
 

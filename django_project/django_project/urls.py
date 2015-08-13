@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     url(r'^tracks/(?P<title>[\w\-]+)/', 'tracks.views.track_view', name='track_view'),
     url(r'^signup/', 'userprofiles.views.signup', name='signup'),
     url(r'^signin/', 'userprofiles.views.signin', name='signin'),
+    url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
+    url(r'^admin/', include(admin.site.urls)), # admin site
 )
 #Tener en cuenta que solo se habilita cuando esta en el entorno de desarrollo
 urlpatterns += patterns ('',

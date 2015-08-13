@@ -21,3 +21,5 @@ class Track(models.Model):
             Your browser does not support the audio tag.
         </audio>
         """ % self.track_file.url
+    player.allow_tags = True
+    player.admin_order_field = 'track_file'

@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'albums',
     'artists',
     'userprofiles',
+    'django_extensions'
 )
 
 MIDDLEWARE_CLASSES = (

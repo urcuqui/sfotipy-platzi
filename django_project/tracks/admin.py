@@ -10,6 +10,7 @@ class TrackAdmin(admin.ModelAdmin):
     search_fields = ('title', 'artist__name', 'artist__last_name')
     list_editable = ('artist','album')
     actions = (export_as_excel, )
+    raw_id_fields = ('artist',)
 
     def es_pharrel(self, obj):
         return obj.id == 1

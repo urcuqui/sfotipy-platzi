@@ -30,6 +30,7 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     "django.core.context_processors.request",
+    'django_project.context_processors.basico',
 )
 
 GRAPPELLI_ADMIN_TITLE = 'Sfotipy'
@@ -59,6 +60,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_project.middlewares.PaisMiddleware',
 )
 
 ROOT_URLCONF = 'django_project.urls'

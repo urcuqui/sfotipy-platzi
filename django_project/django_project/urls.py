@@ -1,18 +1,19 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
-
+from artists.views import ArtistDetailView
 urlpatterns = patterns('',
     # Examples:
     #url(r'^$', 'django_project.tracks.views', name='hola'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^tracks/(?P<title>[\w\-]+)/', 'tracks.views.track_view', name='track_view'),
+    url(r'^tracks/(?P<title>[\w\-W]+)/', 'tracks.views.track_view', name='track_view'),
     url(r'^signup/', 'userprofiles.views.signup', name='signup'),
     url(r'^signin/', 'userprofiles.views.signin', name='signin'),
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)), # admin site
+    url(r'^artists/(?P<pk>[\d]+)', ArtistDetailView.as_view()),
 )
 #Tener en cuenta que solo se habilita cuando esta en el entorno de desarrollo
 urlpatterns += patterns ('',

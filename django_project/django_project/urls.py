@@ -2,10 +2,12 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 from artists.views import ArtistDetailView, ArtistListView, ArtistViewSet
+from albums.views import AlbumViewSet
 from rest_framework import viewsets, routers
 
 router = routers.DefaultRouter()
 router.register(r'artists', ArtistViewSet)
+router.register(r'albums', AlbumViewSet)
 
 urlpatterns = patterns('',
     # Examples:
@@ -19,7 +21,8 @@ urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)), # admin site
     url(r'^artists/(?P<pk>[\d]+)', ArtistDetailView.as_view()),
-    url(r'^api', include(router.urls)),
+    url(r'^artists/', ArtistListView.as_view(), name='about'),
+    url(r'^api/', include(router.urls)),
 )
 #Tener en cuenta que solo se habilita cuando esta en el entorno de desarrollo
 urlpatterns += patterns ('',

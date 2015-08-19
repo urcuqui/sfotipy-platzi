@@ -6,15 +6,18 @@ from django.views.generic import ListView
 
 class ArtistDetailView(DetailView):
     model = Artist
-    context_object_name = 'fav_artist'
+    context_object_name = 'artist'
     template_name = 'artist.html'
 
 class ArtistListView(ListView):
     model = Artist
     context_object_name = 'artists'
-    template_name =  'artist.html'
+    def get_template_names(self):
+        return 'artist.html'
 
 from rest_framework import viewsets
 
 class ArtistViewSet(viewsets.ModelViewSet):
     model = Artist
+    queryset = Artist.objects.all()
+    serializer_class = Artist

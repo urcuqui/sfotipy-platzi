@@ -3,11 +3,13 @@ from django.contrib import admin
 from django.conf import settings
 from artists.views import ArtistDetailView, ArtistListView, ArtistViewSet
 from albums.views import AlbumViewSet
+from tracks.views import TrackViewSet
 from rest_framework import viewsets, routers
 
 router = routers.DefaultRouter()
 router.register(r'artists', ArtistViewSet)
 router.register(r'albums', AlbumViewSet)
+router.register(r'tracks', TrackViewSet)
 
 urlpatterns = patterns('',
     # Examples:
@@ -23,6 +25,7 @@ urlpatterns = patterns('',
     url(r'^artists/(?P<pk>[\d]+)', ArtistDetailView.as_view()),
     url(r'^artists/', ArtistListView.as_view(), name='about'),
     url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 )
 #Tener en cuenta que solo se habilita cuando esta en el entorno de desarrollo
 urlpatterns += patterns ('',

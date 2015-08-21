@@ -16,8 +16,10 @@ class ArtistListView(ListView):
         return 'artist.html'
 
 from rest_framework import viewsets
-
+from .serializers import ArtistSerializer
 class ArtistViewSet(viewsets.ModelViewSet):
     model = Artist
+    serializer_class = ArtistSerializer
     queryset = Artist.objects.all()
-    serializer_class = Artist
+    filter_fields =('id')
+    paginate_by = 1

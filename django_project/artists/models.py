@@ -8,8 +8,16 @@ class Artist(models.Model):
     favorite_songs = models.ManyToManyField('tracks.Track', blank=True, related_name='is_favorite_of')
 
     def __unicode__(self):
-        return self.name, self.last_name
+        return self.name
 
     def es_pharrel(self):
         return self.id == 1
 
+from django.core.cache import cache
+from django.db.models.signals import post_save
+from django.contrib.sessions.models import Session
+
+@receiver(post_save)
+    def clear_cache(sender, **kwargs):
+        if sender != Session:
+            cache._cache.flush_all()

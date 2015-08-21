@@ -2,12 +2,14 @@ import json
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
-
+from django.views.decorators.cache import cache_page
+from django.core.cache import cache
 from .models import Track
 
 
 # Create your views here.
 @login_required
+@cache_page(60)
 def track_view(request, title):
     # try:
     #    track = Track.object.get(title=title)

@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'userprofiles',
     'django_extensions',
     'rest_framework',
+    'sorl.thumbnail',
 )
 
 MIDDLEWARE_CLASSES = (

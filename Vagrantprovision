@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+sudo apt-get update
+
+#################### Tools ####################
+
+# Pip
+sudo apt-get install -y python-pip
+
+# Virtualenv
+sudo pip install virtualenv
+
+# Git
+sudo apt-get install -y git
+
+# Node.js
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+sudo apt-get install -y nodejs
+# sudo ln -s /usr/bin/nodejs /usr/bin/node
+
+#################### Fusion Center ####################
+
+# Django
+sudo pip install Django==1.8.3
+
+# Postgres
+sudo apt-get install -y postgresql-9.3
+
+# Geospatial libraries and PostGis
+sudo apt-get install -y python-psycopg2
+sudo apt-get install -y binutils libproj-dev gdal-bin
+sudo apt-get install -y postgresql-9.3-postgis-2.1
+
+# Django rest framework
+sudo pip install djangorestframework==3.0.4
+sudo pip install markdown==2.6.1
+sudo pip install django-filter==0.9.2
+sudo pip install djangorestframework-gis==0.8
+sudo pip install django-cors-headers==1.0.0
+
+# Bower
+sudo npm install -g bower
+sudo pip install django-bower==5.0.2
+
+# Redis - Broker for distributed tasks (Celery) and cache
+sudo apt-get install -y redis-server
+sudo pip install redis
+sudo pip install django-redis
+
+# Celery - Distributed task queue
+sudo pip install -U celery[redis]
+
+#Otras herramientas
+#debug
+sudo pip install ipdb
+sudo pip install werkseug
+#filtros en la API REST DJANGO Filter
+sudo pip install django-filter
+
+#cache co redis
+sudo pip install django-redis-cache
+sudo pip install hiredis
+
+#thumbail para imagenes
+sudo pip install sorl-thumbnail
+sudo apt-get install libgraphicsmagick++-dev
+sudo apt-get install libboost-python1.40-dev
+sudo apt-get install imagemagick
+sudo pip install pillow

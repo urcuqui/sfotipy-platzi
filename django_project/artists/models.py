@@ -12,7 +12,7 @@ class Artist(models.Model):
 
     def es_pharrel(self):
         return self.id == 1
-
+#kuky
 from django.core.cache import cache
 from django.db.models.signals import post_save
 from django.contrib.sessions.models import Session

@@ -52,6 +52,8 @@ INSTALLED_APPS = (
     'django_extensions',
     'rest_framework',
     'sorl.thumbnail',
+    'djcelery',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,6 +88,9 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+import djcelery
+djcelery.setup_loader()
 
 CACHES = {
     'default': {

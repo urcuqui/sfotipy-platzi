@@ -13,11 +13,12 @@ class Artist(models.Model):
     def es_pharrel(self):
         return self.id == 1
 #kuky
-from django.core.cache import cache
-from django.db.models.signals import post_save
-from django.contrib.sessions.models import Session
-
+# from django.core.cache import cache
+# from django.db.models.signals import post_save
+# from django.contrib.sessions.models import Session
+# from django.dispatch import receiver
+#
 # @receiver(post_save)
-#     def clear_cache(sender, **kwargs):
-#         if sender != Session:
-#             cache._cache.flush_all()
+# def clear_cache(sender, **kwargs):
+#     if sender != Session:
+#         cache._cache.flush_all()

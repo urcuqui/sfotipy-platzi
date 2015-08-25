@@ -5,6 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.decorators.cache import cache_page
 from django.core.cache import cache
 from .models import Track
+from artists.tasks import demorada
 
 
 # Create your views here.
@@ -28,6 +29,7 @@ def track_view(request, title):
             'bio': bio,
         }
     }
+    demorada.apply_async(countdown=5)
     json_data = json.dumps(data)
     #return HttpResponse(json_data, content_type='application/json')
     return render(request, 'track.html', {'track': track})

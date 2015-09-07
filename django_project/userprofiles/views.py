@@ -3,13 +3,18 @@ from django.shortcuts import render
 from .forms import UserCreationEmailForm
 from .forms import EmailAuthenticationForm
 from django.contrib.auth import login
-from django.views.generic import View
+from django.views.generic import TemplateView
+from django.http import HttpResponse
 
 # Create your views here.
-class LoginView(View):
+class LoginView(TemplateView):
 
+    template_name = 'login.html'
+    def get_context_data(self, **kwargs):
+        context = super(LoginView,self).get_context_data(**kwargs)
+        is_auth = False
+        #if self.request
 
-    pass
 
 
 

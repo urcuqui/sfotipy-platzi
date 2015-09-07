@@ -12,6 +12,7 @@ router.register(r'artists', ArtistViewSet)
 router.register(r'albums', AlbumViewSet)
 router.register(r'tracks', TrackViewSet)
 
+from django.views.generic import TemplateView
 urlpatterns = patterns('',
     # Examples:
     #url(r'^$', 'django_project.tracks.views', name='hola'),
@@ -27,7 +28,7 @@ urlpatterns = patterns('',
     url(r'^artists/', ArtistListView.as_view(), name='about'),
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'login/$', LoginView.as_view(), name='login'),
+    url(r'login/$', TemplateView.as_view(template_name='login.html'), name='login'),
 )
 #Tener en cuenta que solo se habilita cuando esta en el entorno de desarrollo
 urlpatterns += patterns ('',

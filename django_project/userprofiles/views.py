@@ -3,7 +3,14 @@ from django.shortcuts import render
 from .forms import UserCreationEmailForm
 from .forms import EmailAuthenticationForm
 from django.contrib.auth import login
+from django.views.generic import View
+
 # Create your views here.
+class LoginView(View):
+
+
+    pass
+
 
 
 def signup(request):

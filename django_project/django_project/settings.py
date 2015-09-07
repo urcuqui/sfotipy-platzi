@@ -52,7 +52,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'rest_framework',
     'sorl.thumbnail',
-    'djcelery',
+
 
 )
 
@@ -66,7 +66,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
-    #'django_project.middlewares.PaisMiddleware',
+    'django_project.middlewares.PaisMiddleware',
 )
 
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
@@ -89,20 +89,21 @@ DATABASES = {
     }
 }
 #cambiar
-import djcelery
-djcelery.setup_loader()
 
-CACHES = {
-    'default': {
-        'BACKEND': 'redis_cache.RedisCache',
-        'LOCATION': 'localhost:6379',
-        'OPTIONS': {
-            'DB': 1,
-            #'PASSWORD': '',
-            'PARSER_CLASS': 'redis.connection.HiredisParser'
-        }
-    }
-}
+#import djcelery
+#djcelery.setup_loader()
+
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'redis_cache.RedisCache',
+#         'LOCATION': 'localhost:6379',
+#         'OPTIONS': {
+#             'DB': 1,
+#             #'PASSWORD': '',
+#             'PARSER_CLASS': 'redis.connection.HiredisParser'
+#         }
+#     }
+# }
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 

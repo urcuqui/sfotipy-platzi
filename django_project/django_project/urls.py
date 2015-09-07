@@ -5,6 +5,7 @@ from artists.views import ArtistDetailView, ArtistListView, ArtistViewSet
 from albums.views import AlbumViewSet
 from tracks.views import TrackViewSet
 from rest_framework import viewsets, routers
+from userprofiles.views import LoginView
 
 router = routers.DefaultRouter()
 router.register(r'artists', ArtistViewSet)
@@ -25,7 +26,8 @@ urlpatterns = patterns('',
     url(r'^artists/(?P<pk>[\d]+)', ArtistDetailView.as_view()),
     url(r'^artists/', ArtistListView.as_view(), name='about'),
     url(r'^api/', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'login/$', LoginView.as_view(), name='login'),
 )
 #Tener en cuenta que solo se habilita cuando esta en el entorno de desarrollo
 urlpatterns += patterns ('',

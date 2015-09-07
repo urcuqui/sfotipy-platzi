@@ -54,6 +54,8 @@ sudo pip install -U celery[redis]
 #debug
 sudo pip install ipdb
 sudo pip install werkseug
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #filtros en la API REST DJANGO Filter
 sudo pip install django-filter
 
@@ -70,3 +72,10 @@ sudo pip install pillow
 
 #django celery
 sudo pip install django-celery
+
+sudo pip install django-grappelli
+
+
+sudo pip install django-extensions
+
+sudo pip install tablib

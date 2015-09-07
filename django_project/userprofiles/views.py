@@ -13,7 +13,7 @@ class LoginView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(LoginView,self).get_context_data(**kwargs)
         is_auth = False
-        #if self.request
+ #mirar       #if self.request
 
 
 
